@@ -6,7 +6,7 @@ import FollowerList from '../components/FollowerList';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_WORKOUTS, QUERY_ME_BASIC } from '../utils/queries';
-import FollowerList from '../components/FollowerList';
+
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_WORKOUTS);

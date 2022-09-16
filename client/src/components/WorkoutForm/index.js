@@ -45,7 +45,7 @@ const WorkoutForm = () => {
     event.preventDefault();
 
     try {
-      await addThought({
+      await addWorkout({
         variables: { workoutText },
       });
 
@@ -71,7 +71,7 @@ const WorkoutForm = () => {
       >
         <textarea
           placeholder="Here's my latest workout!"
-          value={thoughtText}
+          value={workoutText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>

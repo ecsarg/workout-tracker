@@ -1,5 +1,4 @@
 import { gql } from '@apollo/client';
-
 export const QUERY_WORKOUTS = gql`
   query workout($username: String) {
     workouts(username: $username) {
@@ -11,13 +10,14 @@ export const QUERY_WORKOUTS = gql`
       reactions {
         _id
         createdAt
+        createdAt
         username
+        reactionBody
         reactionBody
       }
     }
   }
 `;
-
 export const QUERY_WORKOUT = gql`
   query workout($id: ID!) {
     workout(_id: $id) {
@@ -35,7 +35,6 @@ export const QUERY_WORKOUT = gql`
     }
   }
 `;
-
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
@@ -56,7 +55,6 @@ export const QUERY_USER = gql`
     }
   }
 `;
-
 export const QUERY_ME = gql`
   {
     me {
@@ -83,7 +81,6 @@ export const QUERY_ME = gql`
     }
   }
 `;
-
 export const QUERY_ME_BASIC = gql`
   {
     me {
@@ -98,3 +95,15 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
+
+
+
+
+
+
+
+
+
+
+
