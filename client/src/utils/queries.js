@@ -1,32 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
-    }
-  }
-`;
-
-export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-      }
-    }
-  }
-`;
-
-export const ADD_WORKOUT = gql`
-  mutation addWorkout($workoutText: String!) {
-    addWorkout(workoutText: $workoutText) {
+export const QUERY_WORKOUTS = gql`
+  query workout($username: String) {
+    workouts(username: $username) {
       _id
       workoutText
       createdAt
@@ -34,32 +10,72 @@ export const ADD_WORKOUT = gql`
       reactionCount
       reactions {
         _id
+        createdAt
+        username
+        reactionBody
       }
     }
   }
 `;
 
-export const ADD_REACTION = gql`
-  mutation addReaction($workoutId: ID!, $reactionBody: String!) {
-    addReaction(workoutId: $workoutId, reactionBody: $reactionBody) {
+export const QUERY_WORKOUT = gql`
+  query workout($id: ID!) {
+    workout(_id: $id) {
       _id
+      workoutText
+      createdAt
+      username
       reactionCount
       reactions {
         _id
-        reactionBody
         createdAt
         username
+        reactionBody
       }
     }
   }
 `;
 
-export const ADD_FOLLOWER = gql`
-  mutation addFollower($id: ID!) {
-    addFollower(followerId: $id) {
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
       _id
       username
+      email
       followerCount
+      followers {
+        _id
+        username
+      }
+      workouts {
+        _id
+        workoutText
+        createdAt
+        reactionCount
+      }
+    }
+  }
+`;
+
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      followerCount
+      workouts {
+        _id
+        workoutText
+        createdAt
+        reactionCount
+        reactions {
+          _id
+          createdAt
+          reactionBody
+          username
+        }
+      }
       followers {
         _id
         username
@@ -68,11 +84,13 @@ export const ADD_FOLLOWER = gql`
   }
 `;
 
-export const REMOVE_FOLLOWER = gql`
-  mutation removeFollower($id: ID!) {
-    removeFollower(id: $id) {
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
       _id
       username
+      email
+      followerCount
       followers {
         _id
         username
