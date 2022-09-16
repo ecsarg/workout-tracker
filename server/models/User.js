@@ -4,19 +4,19 @@ const bcrypt = require('bcrypt');
 const UserSchema = new Schema ({
     username: {
         type: String,
-        require: true,
+        required: true,
         unique: true,
         trim: true
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         unique: true,
         match: [/.+@.+\..+/, 'Must match an email address!']
     },
     password: {
         type: String, 
-        require: true,
+        required: true,
         unique: true,
         minlength: 8,
         maxlength: 32
@@ -27,6 +27,12 @@ const UserSchema = new Schema ({
             ref: 'Workout'
         },
     ],
+    followers: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
 },
 {
     toJSON: {
@@ -52,8 +58,8 @@ UserSchema.methods.isCorrectPassword = async function(password) {
     return this.followers.length;
   });
 
-const user = model('User', UserSchema);
+const User = model('User', UserSchema);
 
 
-module.exports = UserSchema;
+module.exports = User;
 
