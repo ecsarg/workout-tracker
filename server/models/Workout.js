@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const ReactionSchema = require('../models/Reaction');
-const { default: ListPrompt } = require('inquirer/lib/prompts/list');
 
 const WorkoutSchema = new Schema ({
     workoutBody: {
@@ -31,7 +30,7 @@ const WorkoutSchema = new Schema ({
 }
 );
 
-WorkoutSchema.virtual('reactionCount').git(function(){
+WorkoutSchema.virtual('reactionCount').get(function(){
     return this.reactions.length;
 });
 
