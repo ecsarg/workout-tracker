@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
+    <footer className="navbar navbar-expand-lg bg-light fixed-bottom">
       <div className="container">
         &copy;{new Date().getFullYear()} by Ellie Sargent, Patrick Kinsley, Jerilyn Wise 
       </div>

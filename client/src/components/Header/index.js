@@ -10,26 +10,32 @@ const Header = () => {
     };
   
     return (
-      <header className="bg-secondary mb-4 py-2 flex-row align-center">
-        <div className="container flex-row justify-space-between-lg justify-center align-center">
-          <Link to="/">
-            <h1>WALK THIS WEIGH</h1>
+      <header className="navbar navbar-expand-lg bg-light fixed-top">
+        <div className="container-fluid ">
+          <Link className='nav-link' to="/">
+            <h1 >WALK THIS WEIGH</h1>
           </Link>
   
           <nav className="text-center">
-            {Auth.loggedIn() ? (
-              <>
+          <ul class="nav justify-content-end">  
+              {Auth.loggedIn() ? (
+              <li class="nav-item">
                 <Link to="/profile">Me</Link>
-                <a href="/" onClick={logout}>
+                <a  href="/" onClick={logout}>
                   Logout
                 </a>
-              </>
-            ) : (
-              <>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
-              </>
-            )}
+              </li>
+              ) : (
+                <>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/login">Login</Link>
+                </li>
+                <li class="nav-item">
+                    <Link class="nav-link" to="/signup">Signup</Link>
+                </li>
+                </>
+                 )}
+               </ul> 
           </nav>
         </div>
       </header>
@@ -37,4 +43,3 @@ const Header = () => {
   };
   
   export default Header;
-  
