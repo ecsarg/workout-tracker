@@ -22,8 +22,8 @@ const SingleWorkout = (props) => {
   }
 
   return (
-    <div>
-      <div className="card mb-3">
+    <div id='single_workout'>
+      <div  className="card mb-4">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {workout.username}

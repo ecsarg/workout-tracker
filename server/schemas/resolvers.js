@@ -1,6 +1,6 @@
-const { AuthenticationError, UserInputError } = require('apollo-server-express');
+const { AuthenticationError} = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { User } = require('../models');
+const { User, Workout } = require('../models');
 
 const resolvers = {
     Query: {
@@ -9,7 +9,7 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('workouts')
-                    .populate('following');
+                    .populate('followers');
 
                 return userData;
             }
@@ -88,13 +88,15 @@ const resolvers = {
 
             throw new AuthenticationError('You must be logged in!');
         },
-        addFollower: async (parent, { friendId }, context) => {
+        addFollower: async (parent, { followerId }, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { followers: followId } },
+                    { $addToSet: { followers: followerId } },
                     { new: true }
                 ).populate('followers');
+
+                return updatedUser;
             }
 
             throw new AuthenticationError('You must be logged in!');

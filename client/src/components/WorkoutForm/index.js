@@ -63,19 +63,19 @@ const WorkoutForm = () => {
         className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
       >
         Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
       </p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+      <form  className="border border-light p-5"
         onSubmit={handleFormSubmit}
       >
+        <p className="h4 mb-4 text-center">My Workout</p>
         <textarea
-          placeholder="Here's my latest workout!"
+          placeholder="Add workout here....."
           value={workoutText}
-          className="form-input col-12 col-md-9"
+          className="form-control rounded-0"
+          rows="3"
           onChange={handleChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="btn btn-info btn-block" type="submit">
           Submit
         </button>
       </form>
