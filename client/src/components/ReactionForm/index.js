@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 import { ADD_REACTION } from '../../utils/mutations';
 
 const ReactionForm = ({ workoutId }) => {
@@ -46,7 +46,7 @@ const ReactionForm = ({ workoutId }) => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Leave a reaction to this thought..."
+          placeholder="Leave a reaction to this workout..."
           value={reactionBody}
           className="form-input col-12 col-md-9"
           onChange={handleChange}

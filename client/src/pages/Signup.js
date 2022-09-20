@@ -64,7 +64,7 @@ const Signup = () => {
                 id="password"
                 value={formState.password}
                 onChange={handleChange}/>
-        <small id="defaultRegisterFormPhoneHelpBlock" className="form-text text-muted mb-4">Minimal 8 characters lenght</small>
+        <small id="defaultRegisterFormPhoneHelpBlock" className="form-text text-muted mb-4">Minimal 8 characters length</small>
         <button className="btn btn-info my-4 btn-block" type="submit">Sign up</button>
         {error && <div>Signup failed</div>}
       </form>

@@ -23,7 +23,7 @@ const WorkoutForm = () => {
         console.warn("First workout insertion by user!")
       }
 
-      // update thought array's cache
+      // update workout array's cache
       const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
       cache.writeQuery({
         query: QUERY_WORKOUTS,

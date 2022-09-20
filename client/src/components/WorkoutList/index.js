@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "../../index.css"
 
 const WorkoutList = ({ workouts, title }) => {
   if (!workouts.length) {
-    return <h3>No Workouts Yet</h3>;
+    return <h3 id= '#form_box'>No Workouts Yet</h3>;
   }
 
   return (

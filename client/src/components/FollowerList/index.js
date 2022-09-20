@@ -4,7 +4,7 @@ import '../../index.css'
 
 const FollowerList = ({ followerCount, username, followers }) => {
   if (!followers || !followers.length) {
-    return <p id='folower' className="alert alert-secondary text-center mb-4" role="alert">{username}, follow some new users!</p>;
+    return <p id='follower' className="alert alert-secondary text-center mb-4" role="alert">{username}, follow some new users!</p>;
   }
 
   return (

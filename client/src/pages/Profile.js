@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
-import WorkoutForm from '../components/WorkoutForm';
+
 import WorkoutList from '../components/WorkoutList';
 import FollowerList from '../components/FollowerList';
 
@@ -51,7 +51,7 @@ const Profile = (props) => {
   return (
     <div>
       <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
+        <h2 className="alert alert-secondary text-center mb-4" role="alert" id='form_box'>
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
         </h2>
 
@@ -65,7 +65,7 @@ const Profile = (props) => {
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <WorkoutList
-            thoughts={user.workouts}
+            workouts={user.workouts}
             title={`${user.username}'s workouts...`}
           />
         </div>
@@ -73,12 +73,11 @@ const Profile = (props) => {
         <div className="col-12 col-lg-3 mb-3">
           <FollowerList
             username={user.username}
-            friendCount={user.followerCount}
-            friends={user.followers}
+            followerCount={user.followerCount}
+            followers={user.followers}
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <WorkoutForm />}</div>
     </div>
   );
 };
