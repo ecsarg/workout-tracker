@@ -43,11 +43,17 @@ const Login = (props) => {
     <main>
       <form id='form_box' className='border border-light p-5' onSubmit={handleFormSubmit}>
         <p className="h4 mb-4 text-center">Sign in</p>
-        <input type="email" id="email" className="form-control mb-4" 
+        <input type="email" 
+        id="email" 
+        name="email"
+        className="form-control mb-4" 
         placeholder="E-mail" 
         value={formState.email} 
         onChange={handleChange}></input>
-        <input type="password" id="password" className="form-control mb-4" 
+        <input type="password" 
+        id="password" 
+        className="form-control mb-4" 
+        name="password"
         placeholder="Password" 
         value={formState.password}
         onChange={handleChange}></input>
