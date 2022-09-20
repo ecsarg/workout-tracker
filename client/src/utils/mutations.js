@@ -25,10 +25,10 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_WORKOUT = gql`
-  mutation addWorkout($workoutText: String!) {
-    addWorkout(workoutText: $workoutText) {
+  mutation addWorkout($workoutBody: String!) {
+    addWorkout(workoutBody: $workoutBody) {
       _id
-      workoutText
+      workoutBody
       createdAt
       username
       reactionCount

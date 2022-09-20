@@ -5,7 +5,7 @@ import { ADD_WORKOUT } from '../../utils/mutations';
 import { QUERY_WORKOUTS, QUERY_ME } from '../../utils/queries';
 
 const WorkoutForm = () => {
-  const [workoutText, setText] = useState('');
+  const [workoutBody, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
@@ -46,7 +46,7 @@ const WorkoutForm = () => {
 
     try {
       await addWorkout({
-        variables: { workoutText },
+         workoutBody
       });
 
       // clear form value
@@ -70,7 +70,7 @@ const WorkoutForm = () => {
         <p className="h4 mb-4 text-center">My Workout</p>
         <textarea
           placeholder="Add workout here....."
-          value={workoutText}
+          value={workoutBody}
           className="form-control rounded-0"
           rows="3"
           onChange={handleChange}

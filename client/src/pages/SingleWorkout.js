@@ -31,7 +31,7 @@ const SingleWorkout = (props) => {
           Workout on {workout.createdAt}
         </p>
         <div className="card-body">
-          <p>{workout.workoutText}</p>
+          <p>{workout.workoutBody}</p>
         </div>
       </div>
 

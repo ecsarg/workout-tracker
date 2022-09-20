@@ -25,7 +25,7 @@ const WorkoutList = ({ workouts, title }) => {
             </p>
             <div className="card-body">
               <Link to={`/workout/${workout._id}`}>
-                <p>{workout.workoutText}</p>
+                <p>{workout.workoutBody}</p>
                 <p className="mb-0">
                   Reactions: {workout.reactionCount} || Click to{' '}
                   {workout.reactionCount ? 'see' : 'start'} the discussion!
