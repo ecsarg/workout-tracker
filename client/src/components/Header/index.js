@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../utils/auth';
+import '../../index.css'
 
 const Header = () => {
     const logout = event => {
@@ -10,26 +11,34 @@ const Header = () => {
     };
   
     return (
-      <header className="bg-secondary mb-4 py-2 flex-row align-center">
-        <div className="container flex-row justify-space-between-lg justify-center align-center">
-          <Link to="/">
-            <h1>WALK THIS WEIGH</h1>
+      <header className="navbar navbar-expand-lg bg-light fixed-top">
+        <div className="container-fluid ">
+          <Link className='nav-link' to="/">
+            <h1 >WALK THIS WEIGH</h1>
           </Link>
   
-          <nav className="text-center">
-            {Auth.loggedIn() ? (
+          <nav className="text-center nav-item">
+          <ul className="nav justify-content-end">  
+              {Auth.loggedIn() ? (
               <>
-                <Link to="/profile">Me</Link>
-                <a href="/" onClick={logout}>
+              <li className="nav-item">
+                <Link className="nav-link" to="/profile">Me</Link>
+                <a className="nav-link"  href="/" onClick={logout}>
                   Logout
                 </a>
+              </li>
               </>
-            ) : (
-              <>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
-              </>
-            )}
+              ) : (
+                <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/signup">Signup</Link>
+                </li>
+                </>
+                 )}
+               </ul> 
           </nav>
         </div>
       </header>
@@ -37,4 +46,3 @@ const Header = () => {
   };
   
   export default Header;
-  

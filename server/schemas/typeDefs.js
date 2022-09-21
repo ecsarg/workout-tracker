@@ -6,7 +6,7 @@ const typeDefs = gql`
         username: String
         email: String
         password: String
-        followCount: Int
+        followerCount: Int
         workouts: [Workout]
         followers: [User]
     }
@@ -16,7 +16,6 @@ const typeDefs = gql`
         workoutBody: String
         createdAt: String
         username: String
-        muscleGroup: String
         reactionCount: Int
         reactions: [Reaction]
     }

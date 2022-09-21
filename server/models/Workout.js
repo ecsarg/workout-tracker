@@ -1,11 +1,13 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
-const ReactionSchema = require('../models/Reaction');
+const reactionSchema = require('./Reaction');
 
-const WorkoutSchema = new Schema ({
+const workoutSchema = new Schema ({
     workoutBody: {
         type: String,
-        require: true
+        required: "You need to add your workout!",
+        minlength:1,
+        maxlength:280
     },
     username: {
         type: String, 
@@ -16,12 +18,12 @@ const WorkoutSchema = new Schema ({
         default: Date.now,
         get: timestamp => dateFormat(timestamp),
     },
-    muscleGroup: { 
-        type: String,
-        require: true,
-        maxlength: 50
-    },
-    reactions: [ ReactionSchema ],
+    // muscleGroup: { 
+    //     type: String,
+    //     require: true,
+    //     maxlength: 50
+    // },
+    reactions: [ reactionSchema ],
 },
 {
     toJSON: {
@@ -30,12 +32,12 @@ const WorkoutSchema = new Schema ({
 }
 );
 
-WorkoutSchema.virtual('reactionCount').get(function(){
+workoutSchema.virtual('reactionCount').get(function(){
     return this.reactions.length;
 });
 
 
-const workout = model('Workout', WorkoutSchema);
+const Workout = model('Workout', workoutSchema);
 
 
-module.exports = workout;
+module.exports = Workout;

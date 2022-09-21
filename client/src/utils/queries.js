@@ -1,9 +1,11 @@
 import { gql } from '@apollo/client';
+
+// all workouts
 export const QUERY_WORKOUTS = gql`
   query workout($username: String) {
     workouts(username: $username) {
       _id
-      workoutText
+      workoutBody
       createdAt
       username
       reactionCount
@@ -13,16 +15,17 @@ export const QUERY_WORKOUTS = gql`
         createdAt
         username
         reactionBody
-        reactionBody
       }
     }
   }
 `;
+
+// one workout
 export const QUERY_WORKOUT = gql`
   query workout($id: ID!) {
     workout(_id: $id) {
       _id
-      workoutText
+      workoutBody
       createdAt
       username
       reactionCount
@@ -48,7 +51,7 @@ export const QUERY_USER = gql`
       }
       workouts {
         _id
-        workoutText
+        workoutBody
         createdAt
         reactionCount
       }
@@ -64,7 +67,7 @@ export const QUERY_ME = gql`
       followerCount
       workouts {
         _id
-        workoutText
+        workoutBody
         createdAt
         reactionCount
         reactions {

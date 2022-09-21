@@ -5,7 +5,7 @@ import { ADD_WORKOUT } from '../../utils/mutations';
 import { QUERY_WORKOUTS, QUERY_ME } from '../../utils/queries';
 
 const WorkoutForm = () => {
-  const [workoutText, setText] = useState('');
+  const [workoutBody, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addWorkout, { error }] = useMutation(ADD_WORKOUT, {
@@ -23,7 +23,7 @@ const WorkoutForm = () => {
         console.warn("First workout insertion by user!")
       }
 
-      // update thought array's cache
+      // update workout array's cache
       const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
       cache.writeQuery({
         query: QUERY_WORKOUTS,
@@ -46,7 +46,7 @@ const WorkoutForm = () => {
 
     try {
       await addWorkout({
-        variables: { workoutText },
+         workoutBody
       });
 
       // clear form value
@@ -63,19 +63,19 @@ const WorkoutForm = () => {
         className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
       >
         Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
       </p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+      <form  className="border border-light p-5"
         onSubmit={handleFormSubmit}
       >
+        <p className="h4 mb-4 text-center">My Workout</p>
         <textarea
-          placeholder="Here's my latest workout!"
-          value={workoutText}
-          className="form-input col-12 col-md-9"
+          placeholder="Add workout here....."
+          value={workoutBody}
+          className="form-control rounded-0"
+          rows="3"
           onChange={handleChange}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="btn btn-info btn-block" type="submit">
           Submit
         </button>
       </form>

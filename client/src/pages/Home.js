@@ -6,6 +6,7 @@ import FollowerList from '../components/FollowerList';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_WORKOUTS, QUERY_ME_BASIC } from '../utils/queries';
+import '../index.css'
 
 
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
     <main>
       <div className="flex-row justify-space-between">
         {loggedIn && (
-          <div className="col-12 mb-3">
+          <div id='single_workout' className="col-12 mb-3">
             <WorkoutForm />
           </div>
         )}

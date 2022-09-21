@@ -22,8 +22,8 @@ const SingleWorkout = (props) => {
   }
 
   return (
-    <div>
-      <div className="card mb-3">
+    <div id='single_workout'>
+      <div  className="card mb-4">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {workout.username}
@@ -31,7 +31,7 @@ const SingleWorkout = (props) => {
           Workout on {workout.createdAt}
         </p>
         <div className="card-body">
-          <p>{workout.workoutText}</p>
+          <p>{workout.workoutBody}</p>
         </div>
       </div>
 

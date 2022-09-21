@@ -38,48 +38,37 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Sign Up</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your username"
+    <main>
+      <form id='form_box' class="border border-light p-5" onSubmit={handleFormSubmit}>
+        <p className="h4 mb-4 text-center">Sign up</p>
+        <input className="form-control"
+                placeholder="Your Username"
                 name="username"
                 type="username"
                 id="username"
                 value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="Your email"
+                onChange={handleChange}/>
+
+        <input className="form-control mb-4"
+                placeholder="E-mail" 
                 name="email"
                 type="email"
-                id="email"
+                id="email"                        
                 value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
+                onChange={handleChange}/>
+
+        <input  className="form-control mb-4" 
+                placeholder="Password" 
                 name="password"
                 type="password"
                 id="password"
                 value={formState.password}
-                onChange={handleChange}
-              />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
-            </form>
-
-            {error && <div>Signup failed</div>}
-          </div>
-        </div>
-      </div>
+                onChange={handleChange}/>
+        <small id="defaultRegisterFormPhoneHelpBlock" className="form-text text-muted mb-4">Minimal 8 characters length</small>
+        <button className="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+        {error && <div>Signup failed</div>}
+      </form>
+      
     </main>
   );
 };
