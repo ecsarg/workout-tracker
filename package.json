@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
+  "engines": {
+    "node": "16.15.1"
+  },
   "scripts": {
     "server": "node server/server.js",
     "client": "npm start --prefix client",
