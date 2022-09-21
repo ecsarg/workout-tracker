@@ -2,10 +2,11 @@
   ## Description
 
     MERN Full Stakc web appication for tracking your workouts, following other users, and reacting to their workouts!</br>
-    image.png
+    
   </br>
   https://infinite-falls-51606.herokuapp.com/ </br>
   
+![walkthisweigh](https://user-images.githubusercontent.com/102970872/191399259-e487c222-3269-4434-899e-f94cd83fadbc.PNG) </br>
 
 
 
