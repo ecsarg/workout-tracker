@@ -8,6 +8,7 @@
   },
   "scripts": {
     "server": "node server/server.js",
+    "start": "node server/server.js",
     "client": "npm start --prefix client",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "seed": "cd server && npm run seed",
