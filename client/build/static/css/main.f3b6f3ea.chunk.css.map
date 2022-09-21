@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AACA,UACI,UACJ,CAEA,0BAEI,cACJ","file":"main.f3b6f3ea.chunk.css","sourcesContent":["\n.nav-link {\n    color: black;\n}\n\n#form_box,\n#single_workout {\n    margin-top: 20%;\n}\n\n"]}
