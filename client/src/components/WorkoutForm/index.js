@@ -27,7 +27,7 @@ const WorkoutForm = () => {
       const { workouts } = cache.readQuery({ query: QUERY_WORKOUTS });
       cache.writeQuery({
         query: QUERY_WORKOUTS,
-        data: { workout: [addWorkout, ...workouts] },
+        data: { workouts: [addWorkout, ...workouts] },
       });
     }
   });
@@ -46,7 +46,7 @@ const WorkoutForm = () => {
 
     try {
       await addWorkout({
-         workoutBody
+        variables: { workoutBody }
       });
 
       // clear form value

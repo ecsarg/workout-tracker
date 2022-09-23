@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 // all workouts
 export const QUERY_WORKOUTS = gql`
-  query workout($username: String) {
+  query workouts($username: String) {
     workouts(username: $username) {
       _id
       workoutBody
@@ -11,7 +11,6 @@ export const QUERY_WORKOUTS = gql`
       reactionCount
       reactions {
         _id
-        createdAt
         createdAt
         username
         reactionBody

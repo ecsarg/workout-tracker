@@ -18,11 +18,6 @@ const workoutSchema = new Schema ({
         default: Date.now,
         get: timestamp => dateFormat(timestamp),
     },
-    // muscleGroup: { 
-    //     type: String,
-    //     require: true,
-    //     maxlength: 50
-    // },
     reactions: [ reactionSchema ],
 },
 {
